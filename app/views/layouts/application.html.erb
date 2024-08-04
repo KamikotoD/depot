@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Pragprog Books Online Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
-  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header class="bg-green-700">
-    <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
-    <h1><%= @page_title %></h1>
+<body class="flex flex-col min-h-screen">
+  <!-- Верхняя полоска -->
+  <header class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto">
+      <h1 class="text-xl">Shops</h1>
+    </div>
   </header>
-  <section class="flex">
-    <nav class="bg-green-900 p-6">
-      <ul class="text-gray-300 leading-8">
-        <li><a href="/">Home</a></li>
-        <li><a href="/questions">Questions</a></li>
-        <li><a href="/news">News</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-    <main class="container mx-auto mt-4 px-5 flex">
+
+  <div class="flex flex-1">
+    <!-- Боковое меню -->
+    <aside class="w-64 bg-gray-200 p-4">
+      <nav>
+        <ul>
+          <li class="mb-2"><a href="/" class="block p-2 bg-gray-300 rounded">Home</a></li>
+          <li class="mb-2"><a href="/questions" class="block p-2 bg-gray-300 rounded">Questions</a></li>
+          <li class="mb-2"><a href="/news" class="block p-2 bg-gray-300 rounded">News</a></li>
+          <li class="mb-2"><a href="/contact" class="block p-2 bg-gray-300 rounded">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Центральный контейнер -->
+    <main class="container mx-auto mt-4 px-5 flex-1">
       <%= yield %>
     </main>
-  </section>
+  </div>
 </body>
 </html>
